@@ -11,5 +11,5 @@ public class Main extends JavaPlugin{
 	public void onDisable() {
 		getLogger().info("Jest has been disabled.");
 	}
-	//test
+	//tests
 }
