@@ -1,3 +1,5 @@
+main: fun.nothaving.jest.Main
 name: Jest
 version: 0.1.1
-main: fun.nothaving.jest
+author: Fruooop (MC MeatNugger)
+description:
