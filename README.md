@@ -5,6 +5,10 @@ The plugin jest is designed to increase the difficulty of survival Minecraft.
 Specifically, hardcore mode.
 
 ---
+##Installation
+Download *"Jest0-1-1.jar"* and put it in the plugins folder of a bukkit server.
+
+---
 ## Commands
 Currently, there are 3 commands:
 | Command | Usage |
