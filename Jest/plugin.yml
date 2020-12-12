@@ -3,3 +3,7 @@ name: Jest
 version: 0.1.1
 author: Fruooop (MC MeatNugger)
 description:
+commands:
+    setMobDifficulty:
+      description: Sets additional difficulty to mobs. Use the command without parameters to enable or disable effects.
+      usage: /<command> [easy/medium/hard]

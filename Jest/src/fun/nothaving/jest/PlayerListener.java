@@ -15,9 +15,8 @@ public class PlayerListener implements Listener{
 	double timeSprint=0;
 	double timeSwim=0;
 	
-	
 	public PlayerListener(Main plugin) {
-		
+
 	}
 	//------------------------------------------------------------
 	//Active listener methods
@@ -55,9 +54,19 @@ public class PlayerListener implements Listener{
 		final int x = 10000; //Max x-value to teleport player
 		final int y = 200; //y-value to teleport player
 		final int z = 10000; //Max z-value to teleport player
-
-		//Teleport player to random x and z coordinate
-		steve.teleport(new Location(steve.getWorld(), random.nextInt(x), y, random.nextInt(z)));
+		final int duration = 125; //Duration of slow falling potion effect
+		
+		//If player has NOT joined before
+		if(!steve.hasPlayedBefore()) {
+			//Teleport player to random x and z coordinate
+			steve.teleport(new Location(steve.getWorld(), random.nextInt(x), y, random.nextInt(z)));
+			steve.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, duration, 20, true, false));
+		}
+		
+		//For testing randomized distances. Should be commented in release versions!
+		//steve.teleport(new Location(steve.getWorld(), random.nextInt(x), y, random.nextInt(z)));
+		//steve.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, duration, 20, true, false));
+		
 		
 	}
 	
@@ -104,6 +113,7 @@ public class PlayerListener implements Listener{
 			timeSwim = steve.getPlayerTime();
 		}
 	}
+	
 
 	
 }
