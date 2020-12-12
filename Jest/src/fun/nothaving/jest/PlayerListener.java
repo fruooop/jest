@@ -2,6 +2,8 @@ package fun.nothaving.jest;
 
 import java.util.Random;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,6 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class PlayerListener implements Listener{
+	boolean togglePlayerEffects = true;
 	double timeSprint=0;
 	double timeSwim=0;
 	
@@ -26,7 +29,10 @@ public class PlayerListener implements Listener{
 	@EventHandler
 	public void onPlayerJoined(PlayerJoinEvent event) {
 		Player steve = event.getPlayer();
-		ifFirstJoin(steve, event);
+		if(togglePlayerEffects) {
+			ifFirstJoin(steve, event);
+		}
+		
 	}
 	
 	
@@ -34,8 +40,11 @@ public class PlayerListener implements Listener{
 	@EventHandler
 	public void movementCheck(PlayerMoveEvent event) {
 		Player steve = event.getPlayer();
-		hasOverSprinted(steve, event);
-		hasOverSwam(steve, event);
+		if(togglePlayerEffects) {
+			hasOverSprinted(steve, event);
+			hasOverSwam(steve, event);
+		}
+		
 	}
 	
 	
@@ -83,6 +92,7 @@ public class PlayerListener implements Listener{
 			//If the start of sprint - current time is greater than the time variable
 			if(steve.getPlayerTime() - timeSprint > x) {
 				steve.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, y, z));
+				steve.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, y, 1));
 				timeSwim = steve.getPlayerTime();
 			}
 		}
@@ -98,7 +108,7 @@ public class PlayerListener implements Listener{
 		
 		final int x = 100; //Time limit Variable
 		final int y = 75; //Potion Time Variable
-		final int z = 5; //Potion Amplifier Variable
+		final int z = 3; //Potion Amplifier Variable
 		
 		//If the player is swimming
 		if(steve.isSwimming()) {
@@ -112,6 +122,22 @@ public class PlayerListener implements Listener{
 		else {
 			timeSwim = steve.getPlayerTime();
 		}
+	}
+	
+	public void swPlayerEffects() {
+		//switches playerEffects
+		togglePlayerEffects = !togglePlayerEffects;
+		if(togglePlayerEffects) {
+			Bukkit.broadcastMessage(ChatColor.BLUE + "" +ChatColor.BOLD +"   Player Effects are ON");
+		}
+		else {
+			Bukkit.broadcastMessage(ChatColor.BLUE + "" +ChatColor.BOLD +"   Player Effects are OFF");
+		}
+		
+	}
+	
+	public void getInfo() {
+		Bukkit.broadcastMessage(ChatColor.BLUE + "" +ChatColor.BOLD +"   togglePlayerEffects = " + togglePlayerEffects);
 	}
 	
 
