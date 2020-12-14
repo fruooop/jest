@@ -1,10 +1,14 @@
+# VS Code
+**/.vscode
+
 # Code / Output Related
 **/bin/
 **/target
 **/build
 
 # Development Server Related
-**/server.jar
-**/logs
-**/plugins
-**/cache
+**/server
+!**/server/README.md
+!**/server/server.properties
+!**/server/eula.txt
+!**/server/run.bat

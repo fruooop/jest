@@ -1,0 +1,16 @@
+main: fun.nothaving.jest.Main
+name: Jest
+version: 0.1.1
+author: Fruooop (MC MeatNugger)
+api-version: 1.13
+description: A hardcore survival plugin
+commands:
+    setMobDifficulty:
+      description: Sets additional difficulty to mobs. Use the command without parameters to enable or disable effects.
+      usage: /<command> [easy/medium/hard]
+    togglePlayerEffects:
+      description: Sets additional difficulty for players. See docs for full details.
+      usage: /<command>
+    getJestStatus:
+      description: Check what's enabled from the Jest Plugin.
+      usage: /<command>

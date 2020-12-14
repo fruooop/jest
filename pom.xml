@@ -9,11 +9,10 @@
     </properties>
     <dependencies>
       <dependency>
-        <groupId>spigot-api</groupId>
-        <artifactId>spigot-api</artifactId>
-        <scope>system</scope>
-        <version>1.16.4</version>
-        <systemPath>${basedir}\lib\spigot-api-1.16.4.jar</systemPath>
+        <groupId>org.spigotmc</groupId>
+        <artifactId>spigot</artifactId>
+        <version>1.13.2-R0.1-SNAPSHOT</version>
+        <scope>provided</scope>
      </dependency>
     </dependencies>
   
