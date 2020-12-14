@@ -1,3 +1,10 @@
+# Code / Output Related
 **/bin/
 **/target
 **/build
+
+# Development Server Related
+**/server.jar
+**/logs
+**/plugins
+**/cache
